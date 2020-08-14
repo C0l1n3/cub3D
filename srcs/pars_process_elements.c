@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
 int		process_res(char *line, int i, t_cub *cub, int l)
 {
@@ -19,15 +19,21 @@ int		process_res(char *line, int i, t_cub *cub, int l)
 	if (ft_isdigit(line[i]))
 		cub->win.r_width = mini_atoi(line, &i);
 	else
-		return (ft_error(5, l, "", cub));
+	{
+		i = (line[i] == '-') ? 4 : 5;
+		return (ft_error(i, l, "", cub));
+	}
 	while (line[i] == ' ')
 		i++;
 	if (ft_isdigit(line[i]))
 		cub->win.r_height = mini_atoi(line, &i);
 	else
-		return (ft_error(5, l, "", cub));
-	if (cub->win.r_width < 0 || cub->win.r_height < 0)
-		return (1);
+	{
+		i = (line[i] == '-') ? 4 : 5;
+		return (ft_error(i, l, "", cub));
+	}
+	if (cub->win.r_width <= 0 || cub->win.r_height <= 0)
+		return (ft_error(4, l, "", cub));
 	while (line[i] == ' ')
 		i++;
 	if (line[i] != 0)

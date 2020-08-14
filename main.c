@@ -19,7 +19,7 @@ int		main(int argc, char **argv)
 	ft_bzero(&cub, sizeof(t_cub));
 	init_struct(&cub);
 	if ((argc > 3 || argc < 2 || extension(argv[1]))
-	|| (argc == 3 && ft_strncmp(argv[2], "--save", 6)))
+	|| (argc == 3 && ft_strncmp(argv[2], "--save\0", 7)))
 		return (ft_error_two(0, &cub));
 	cub.map.fd = open(argv[1], O_RDONLY);
 	if (read(cub.map.fd, 0, 0) < 0)
@@ -27,7 +27,7 @@ int		main(int argc, char **argv)
 	if ((get_elements(&cub)) != 0 || get_map(&cub))
 		return (-1);
 	ft_printf("File Ok\n");
-	if (argc == 3 && !ft_strncmp(argv[2], "--save", 6))
+	if (argc == 3 && !ft_strncmp(argv[2], "--save\0", 7))
 		create_bmp(&cub);
 	else
 	{

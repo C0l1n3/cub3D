@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #ifndef LIBFT_H
 # define LIBFT_H
 
@@ -24,7 +23,7 @@
 # include <fcntl.h>
 # include <stdarg.h>
 
-typedef struct	s_param
+typedef struct		s_param
 {
 	char		data_type;
 	int			is_minus;
@@ -35,7 +34,7 @@ typedef struct	s_param
 	int			p_nb;
 	int			nb_printed;
 	int			is_hash;
-}				t_param;
+}					t_param;
 
 typedef struct		s_list
 {
@@ -103,39 +102,40 @@ int					get_next_line(int fd, char **line);
 ** PRINTF
 */
 
-int				ft_putchar_printf(char c, t_param *datas);
-int				ft_process_integer(va_list *args, t_param *datas);
-int				ft_print_int(t_param *datas, int *tab, long nb_long);
-int				ft_print_int2(t_param *datas, int *tab, long nb_long);
-int				ft_print_char(va_list *args, t_param *datas);
-int				ft_process_str(va_list *args, t_param *datas);
-int				ft_print_str(t_param *datas, char *s);
-int				ft_is_data_type(char c);
-int				ft_is_flag(char c);
-void			ft_putchar_ptr(t_param *datas, long int nbr, int hexa_len);
-int				ft_ptr_len(long long int nbr, t_param *datas);
-int				ft_process_ptr(va_list *args, t_param *datas);
-int				ft_process_ptr(va_list *args, t_param *datas);
-void			ft_print_ptr(t_param *datas, long int nbr, int *tab);
-size_t			ft_intlen(int n);
-int				ft_putnbr_unsigned(unsigned int nb, t_param *datas);
-int				ft_putnbr_base(long long int nbr, char *base, t_param *datas);
-void			ft_print_unsigned(t_param *datas, int *tab);
-int				ft_process_unsigned(va_list *args, t_param *datas);
-int				ft_process_hexa(va_list *args, t_param *datas);
-void			ft_print_hexa(t_param *datas, int *tab);
-int				ft_hexa_len(long long int nbr, t_param *datas);
-int				ft_process_n(va_list *args, t_param *datas);
-int				ft_get_nb(const char *str, va_list *args, int *index,
+int					ft_putchar_printf(char c, t_param *datas);
+int					ft_process_integer(va_list *args, t_param *datas);
+int					ft_print_int(t_param *datas, int *tab, long nb_long);
+int					ft_print_int2(t_param *datas, int *tab, long nb_long);
+int					ft_print_char(va_list *args, t_param *datas);
+int					ft_process_str(va_list *args, t_param *datas);
+int					ft_print_str(t_param *datas, char *s);
+int					ft_is_data_type(char c);
+int					ft_is_flag(char c);
+void				ft_putchar_ptr(t_param *datas, long int nbr, int hexa_len);
+int					ft_ptr_len(long long int nbr, t_param *datas);
+int					ft_process_ptr(va_list *args, t_param *datas);
+int					ft_process_ptr(va_list *args, t_param *datas);
+void				ft_print_ptr(t_param *datas, long int nbr, int *tab);
+size_t				ft_intlen(int n);
+int					ft_putnbr_unsigned(unsigned int nb, t_param *datas);
+int					ft_putnbr_base(long long int nbr, char *base,
 t_param *datas);
-void			ft_process_flags1(const char *str, int index, va_list *args,
+void				ft_print_unsigned(t_param *datas, int *tab);
+int					ft_process_unsigned(va_list *args, t_param *datas);
+int					ft_process_hexa(va_list *args, t_param *datas);
+void				ft_print_hexa(t_param *datas, int *tab);
+int					ft_hexa_len(long long int nbr, t_param *datas);
+int					ft_process_n(va_list *args, t_param *datas);
+int					ft_get_nb(const char *str, va_list *args, int *index,
 t_param *datas);
-void			ft_process_flags2(const char *str, int index, va_list *args,
+void				ft_process_flags1(const char *str, int index, va_list *args,
 t_param *datas);
-int				ft_process_data(const char *str, int index, va_list *args,
+void				ft_process_flags2(const char *str, int index, va_list *args,
 t_param *datas);
-t_param			ft_initialize(t_param *datas);
-int				ft_printf(const char *str,
+int					ft_process_data(const char *str, int index, va_list *args,
+t_param *datas);
+t_param				ft_initialize(t_param *datas);
+int					ft_printf(const char *str,
 ...) __attribute__((format(printf,1,2)));
 
 #endif

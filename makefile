@@ -2,31 +2,31 @@ NAME		= cub3D
 
 INCLIB		= %%%%/minilibx-linux/lib
 
-SRCS		=	pars_checks.c \
-				utils_simple_functions.c \
-				pars_init.c \
-				pars_id_checks.c \
-				pars_elements_check.c \
-				pars_process_elements.c \
-				pars_process_description.c \
-				pars_get_elements.c \
-				pars_map_to_tab.c \
-				pars_str_to_lst.c \
-				pars_process_player.c \
-				pars_process_sprites.c \
-				pars_map_check.c \
-				disp_cub3d.c \
-				disp_display.c \
-				disp_sprites.c \
-				disp_fill_background.c \
-				disp_cast.c \
-				disp_cast_hv.c \
-				disp_cast_first_pnt.c \
-				disp_cast_sprite.c \
-				events_movements.c \
-				events_turning.c \
-				events_loop.c \
-				events_bmp.c \
+SRCS		=	srcs/pars_checks.c \
+				srcs/utils_simple_functions.c \
+				srcs/pars_init.c \
+				srcs/pars_id_checks.c \
+				srcs/pars_elements_check.c \
+				srcs/pars_process_elements.c \
+				srcs/pars_process_description.c \
+				srcs/pars_get_elements.c \
+				srcs/pars_map_to_tab.c \
+				srcs/pars_str_to_lst.c \
+				srcs/pars_process_player.c \
+				srcs/pars_process_sprites.c \
+				srcs/pars_map_check.c \
+				srcs/disp_cub3d.c \
+				srcs/disp_display.c \
+				srcs/disp_sprites.c \
+				srcs/disp_fill_background.c \
+				srcs/disp_cast.c \
+				srcs/disp_cast_hv.c \
+				srcs/disp_cast_first_pnt.c \
+				srcs/disp_cast_sprite.c \
+				srcs/events_movements.c \
+				srcs/events_turning.c \
+				srcs/events_loop.c \
+				srcs/events_bmp.c \
 
 INCLUDES	= cub3d.h
 

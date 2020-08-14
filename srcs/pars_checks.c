@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
 int		check_screen_size(t_cub *cub)
 {
@@ -38,7 +38,7 @@ int		ft_error(int code, int line, char *id, t_cub *cub)
 	else if (code == 3)
 		ft_printf("%s is set more than once\n", id);
 	else if (code == 4)
-		ft_printf("You don't have a screen this size...\n");
+		ft_printf("Resolution NULL or negative\n");
 	else if (code == 5)
 		ft_printf("Resolution must be format [R 1920 1080] line %d\n", line);
 	else if (code == 6)
