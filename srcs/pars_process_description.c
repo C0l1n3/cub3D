@@ -6,7 +6,7 @@
 /*   By: coline <coline@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/08 20:15:07 by coline            #+#    #+#             */
-/*   Updated: 2020/08/13 16:05:47 by coline           ###   ########lyon.fr   */
+/*   Updated: 2020/08/15 17:24:28 by coline           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ int		get_map(t_cub *cub)
 	}
 	get_dimension(cub);
 	tab = lst_to_int(cub);
-	if (check_map(tab, cub->map.m_height, cub->map.m_width, cub))
-		return (-1);
+	if ((ret = check_map(tab, cub->map.m_height, cub->map.m_width, cub)))
+		return (ret);
 	close(cub->map.fd);
 	cub->map.map_tab = tab;
 	return (0);
@@ -46,6 +46,8 @@ void	get_dimension(t_cub *cub)
 	list = cub->map.map_lines;
 	j = 0;
 	k = 0;
+	while (list && is_space_line(list->content))
+		list = list->next;
 	while (list)
 	{
 		line = list->content;
@@ -55,11 +57,21 @@ void	get_dimension(t_cub *cub)
 				k++;
 			line++;
 		}
-		if (cub->map.m_width < k)
-			cub->map.m_width = k;
+		cub->map.m_width = (cub->map.m_width < k) ? k : cub->map.m_width;
 		k = 0;
 		list = list->next;
 		j++;
 	}
 	cub->map.m_height = j;
+}
+
+int		is_space_line(char *line)
+{
+	while (line && *line)
+	{
+		if (*line != ' ')
+			return (0);
+		line++;
+	}
+	return (1);
 }

@@ -1,11 +1,11 @@
 R 1920 1080
-F 126,201,36
-NO ./xpm/aln.xpm
-SO ./xpm/als.xpm
-WE ./xpm/alw.xpm
-EA ./xpm/al.xpm
-S ./xpm/pupier.xpm
-C 225,30,0
+NO ./xpm/pioneer.xpm
+SO ./xpm/greenwall.xpm
+WE ./xpm/bookwall.xpm
+EA ./xpm/wall.xpm
+S ./xpm/mana_60.xpm
+C 37,44,58
+F 88,88,96
 
 
 111111111111111

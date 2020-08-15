@@ -1,23 +1,16 @@
-  R 1920     1080  
-NO ./north_texture         
-SO ./south_texture
-WE             ./west_texture
-      
-EA ./east_texture
-      
+R 1920 1080
+NO ./xpm/pioneer.xpm
+SO ./xpm/greenwall.xpm
+WE ./xpm/bookwall.xpm
+EA ./xpm/wall.xpm
 
-S ./sprite_texture           
-C 225,30,0     
-F                                                  126,201,36
-        
-    
-1111111111
-1000210001
-1010110101
-1110000101
-1011111201
-10000N1101
-1011101001
-1010100011
-1010001001
-1111111111
+
+S ./xpm/mana_60.xpm
+C 37,44,58
+F 88,88,96
+
+     
+1111
+1001
+1N01
+1111

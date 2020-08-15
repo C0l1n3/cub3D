@@ -6,7 +6,7 @@
 /*   By: coline <coline@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/21 17:36:18 by cfaure-g          #+#    #+#             */
-/*   Updated: 2020/08/13 16:07:02 by coline           ###   ########lyon.fr   */
+/*   Updated: 2020/08/15 17:07:03 by coline           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,11 +65,13 @@ int		ft_error_two(int code, t_cub *cub)
 	if (code == 2)
 		ft_printf("Your map has only one or no line/column\n");
 	if (code == 3)
-		ft_printf("Your map is open\n");
+		ft_printf("Your map is either open\n");
 	if (code == 4)
 		ft_printf("You have too many or no hero, you fool...\n");
 	if (code == 5)
 		ft_printf("The file you have mentionned does not exist\n");
+	if (code == 6)
+		ft_printf("There is an empty line at the end of the map\n");
 	ft_free_cub(cub);
 	return (-1);
 }

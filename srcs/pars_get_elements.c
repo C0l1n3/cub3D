@@ -6,7 +6,7 @@
 /*   By: coline <coline@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/08 19:18:45 by coline            #+#    #+#             */
-/*   Updated: 2020/08/13 17:34:51 by coline           ###   ########lyon.fr   */
+/*   Updated: 2020/08/15 16:38:37 by coline           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ int		get_elements(t_cub *cub)
 	line_num = 1;
 	while ((ret = get_next_line(cub->map.fd, &line)) >= 0)
 	{
-		if (line && *line != '\0')
+		if (line)
 		{
-			if (ismapline(line))
+			if (ismapline(line) || ret == 0)
 				break ;
-			if (get_id(line, cub, line_num))
+			if (*line != '\0' && get_id(line, cub, line_num))
 			{
 				ft_free_safe(&line);
 				return (-1);
@@ -47,7 +47,7 @@ int		ismapline(char *line)
 	i = 0;
 	while (line && ischarmap(line[i]) >= 0)
 		i++;
-	if (line[i] == 0)
+	if (line[i] == 0 && i > 0)
 		return (1);
 	return (0);
 }

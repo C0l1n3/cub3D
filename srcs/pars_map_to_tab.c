@@ -6,7 +6,7 @@
 /*   By: coline <coline@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/16 18:00:52 by cfaure-g          #+#    #+#             */
-/*   Updated: 2020/08/13 13:58:11 by coline           ###   ########lyon.fr   */
+/*   Updated: 2020/08/15 17:22:45 by coline           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ int		**lst_to_int(t_cub *cub)
 		j++;
 	}
 	fill_tab(tab, cub);
+	cub->map.map_tab = tab;
+	count_sprites(cub);
 	free_lstchar(cub->map.map_lines);
 	cub->map.map_lines = NULL;
 	return (tab);
@@ -63,6 +65,8 @@ void	fill_tab(int **tab, t_cub *cub)
 
 	j = 0;
 	ptr = cub->map.map_lines;
+	while (ptr && is_space_line(ptr->content))
+		ptr = ptr->next;
 	while (ptr)
 	{
 		i = 0;
@@ -72,8 +76,6 @@ void	fill_tab(int **tab, t_cub *cub)
 			tab[j][i] = char_to_int(ptr->content[k]);
 			if ((ischarmap(ptr->content[k])) == 1)
 				process_player(cub, i, j, ptr->content[k]);
-			if (tab[j][i] == 2)
-				cub->map.sp_nb++;
 			i++;
 			k++;
 		}
@@ -83,11 +85,30 @@ void	fill_tab(int **tab, t_cub *cub)
 	}
 }
 
+void	count_sprites(t_cub *cub)
+{
+	int w;
+	int	h;
+
+	h = 0;
+	while (h < cub->map.m_height)
+	{
+		w = 0;
+		while (w < cub->map.m_width)
+		{
+			if (cub->map.map_tab[h][w] == 2)
+				cub->map.sp_nb++;
+			w++;
+		}
+		h++;
+	}
+}
+
 void	finish_filling(int **tab, int *i, int j, t_cub *cub)
 {
 	while (*i < cub->map.m_width)
 	{
-		tab[j][*i + 1] = 8;
+		tab[j][*i] = 8;
 		*i += 1;
 	}
 }

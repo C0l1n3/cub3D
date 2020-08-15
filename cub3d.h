@@ -6,7 +6,7 @@
 /*   By: coline <coline@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/10 12:34:59 by cfaure-g          #+#    #+#             */
-/*   Updated: 2020/08/13 17:35:20 by coline           ###   ########lyon.fr   */
+/*   Updated: 2020/08/15 17:25:06 by coline           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -161,6 +161,13 @@ int				check_leak_map(int **map, int height, int width);
 int				check_player(int **map, int height, int width);
 
 /*
+** pars_map_check_two
+*/
+
+int				check_space(int **map, int h, int w, int *size);
+int				last_line(int **map, int width, int h);
+
+/*
 ** pars_get_elements
 */
 
@@ -195,6 +202,7 @@ double			dist_two_pts(double a_x, double a_y, double b_x, double b_y);
 
 int				get_map(t_cub *cub);
 void			get_dimension(t_cub *cub);
+int				is_space_line(char *line);
 
 /*
 ** pars_init
@@ -238,6 +246,7 @@ int				**lst_to_int(t_cub *cub);
 void			fill_tab(int **tab, t_cub *cub);
 void			finish_filling(int **tab, int *i, int j, t_cub *cub);
 int				char_to_int(char c);
+void			count_sprites(t_cub *cub);
 
 /*
 ** pars_process_player

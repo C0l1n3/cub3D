@@ -6,7 +6,7 @@
 /*   By: coline <coline@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/09 13:40:45 by coline            #+#    #+#             */
-/*   Updated: 2020/08/13 16:04:52 by coline           ###   ########lyon.fr   */
+/*   Updated: 2020/08/15 17:08:50 by coline           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,19 @@
 
 int		check_map(int **map, int height, int width, t_cub *cub)
 {
+	int	ret;
+
+	ret = 0;
 	if (check_char_map(map, height, width))
 		return (ft_error_two(1, cub));
 	else if (height <= 1 || width <= 1)
 		return (ft_error_two(2, cub));
-	else if (check_leak_map(map, height, width))
-		return (ft_error_two(3, cub));
+	else if ((ret = check_leak_map(map, height, width)))
+	{
+		if (ret == -1)
+			return (ft_error_two(3, cub));
+		return (ft_error_two(6, cub));
+	}
 	else if (check_player(map, height, width))
 		return (ft_error_two(4, cub));
 	else
@@ -30,24 +37,21 @@ int		check_leak_map(int **map, int height, int width)
 {
 	int w;
 	int h;
+	int	size[2];
+	int	ret;
 
+	size[0] = width;
+	size[1] = height;
 	w = 0;
 	h = 0;
+	ret = 0;
 	while (h < height)
 	{
 		w = 0;
 		while (w < width)
 		{
-			if ((map[h][w] == 7 || map[h][w] == 8)
-			&& ((h != height - 1 && map[h + 1][w] == 0)
-			|| (h != 0 && map[h - 1][w] == 0)
-			|| (w != width - 1 && map[h][w + 1] == 0)
-			|| (w != 0 && map[h][w - 1] == 0)))
-				return (-1);
-			else if ((h == height - 1 || w == width - 1
-			|| h == 0 || w == 0) && (map[h][w] != 1
-			&& map[h][w] != 7 && map[h][w] != 8))
-				return (-1);
+			if ((ret = check_space(map, h, w, size)))
+				return (ret);
 			w++;
 		}
 		h++;

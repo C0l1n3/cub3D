@@ -27,6 +27,7 @@ SRCS		=	srcs/pars_checks.c \
 				srcs/events_turning.c \
 				srcs/events_loop.c \
 				srcs/events_bmp.c \
+				srcs/pars_map_check_two.c \
 
 INCLUDES	= cub3d.h
 
